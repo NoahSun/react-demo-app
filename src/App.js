@@ -107,7 +107,7 @@ const AuthExample = () => (
 
       <Route path="/public" component={Public} />
       <Route path="/login" component={Login} />
-      <PrivateRoute path="/protected" component={Login} />
+      <PrivateRoute path="/protected" component={Protected} />
 
     </div>
   </Router>
@@ -126,7 +126,7 @@ const fakeAuth = {
 }
 
 const AuthButton = withRouter((props) => {
-  console.log(props);
+  console.log('AuthButton', props);
   const { history, location, match } = props;
   return fakeAuth.isAuthenticated ? (
     <p>
@@ -176,8 +176,8 @@ class Login extends Component {
   }
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
-    const { redirectToReferrer } = this.state
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { redirectToReferrer } = this.state;
 
     if (redirectToReferrer) {
       return (
@@ -188,7 +188,7 @@ class Login extends Component {
     return (
       <div>
         <p>You must log in to view the page at {from.pathname}</p>
-        <button onClick={this.login}>Log in</button>
+        <Button onClick={this.login}>Log in</Button>
       </div>
     );
   }
