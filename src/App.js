@@ -127,7 +127,7 @@ const fakeAuth = {
 
 const AuthButton = withRouter((props) => {
   console.log('AuthButton', props);
-  const { history, location, match } = props;
+  const { history, location } = props;
   return fakeAuth.isAuthenticated ? (
     <p>
       欢迎！
